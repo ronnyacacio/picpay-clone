@@ -6,7 +6,7 @@ const { statusBarHeight } = Constants;
 
 export const Wrapper = styled.View`
   flex: 1;
-  background: #f8f8f8;
+  background: ${({ theme }) => theme.colors.background};
 `;
 
 export const Header = styled(LinearGradient)`
@@ -75,7 +75,7 @@ export const ActionLabel = styled.Text`
 `;
 
 export const UseBalance = styled.View`
-  background: #fff;
+  background: ${({ theme }) => theme.colors.balanceContainer};
   height: 60px;
   flex-direction: row;
   align-items: center;
@@ -84,7 +84,7 @@ export const UseBalance = styled.View`
 `;
 
 export const UseBalanceTitle = styled.Text`
-  color: #222;
+  color: ${({ theme }) => theme.colors.text};
   font-size: 16px;
   font-weight: 500;
 `;
@@ -99,7 +99,7 @@ export const PaymentMethodsTitle = styled.Text`
 `;
 
 export const Card = styled.View`
-  background: #fff;
+  background: ${({ theme }) => theme.colors.cardContainer};
   padding: 20px;
   border-radius: 8px;
   margin-top: 10px;
@@ -115,15 +115,16 @@ export const CardDetails = styled.View`
 `;
 
 export const CardTitle = styled.Text`
-  color: #222;
+  color: ${({ theme }) => theme.colors.text};
   font-size: 16px;
   font-weight: bold;
 `;
 
 export const CardInfo = styled.Text`
-  color: rgba(0, 0, 0, 0.6);
+  color: ${({ theme }) => theme.colors.text};
   font-size: 14px;
   margin-top: 15px;
+  opacity: 0.7;
 `;
 
 export const Img = styled.Image`

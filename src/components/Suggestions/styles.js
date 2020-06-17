@@ -8,7 +8,7 @@ export const Container = styled.ScrollView.attrs({
     paddingLeft: 16,
   },
 })`
-  background: #11c770;
+  background: ${({ theme }) => theme.colors.primary};
   height: 100px;
 `;
 
@@ -22,7 +22,7 @@ export const Img = styled.Image`
 `;
 
 export const Label = styled.Text`
-  color: #222;
+  color: ${({ theme }) => theme.colors.text};
   font-weight: bold;
   font-size: 14px;
 `;

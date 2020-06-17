@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import styled from 'styled-components/native';
 import { AntDesign, Ionicons } from '@expo/vector-icons';
 
 import Home from '../screens/Home';
@@ -33,17 +34,21 @@ const icons = {
   },
 };
 
-export default function Routes({ theme }) {
-  const {
-    backgroundColor,
-    borderTopColor,
-    activeTintColor,
-    inactiveTintColor,
-  } = theme.colors.tabBar;
+const TabBar = styled(Navigator).attrs(({ theme }) => ({
+  tabBarOptions: {
+    style: {
+      backgroundColor: theme.colors.tabBar.backgroundColor,
+      borderTopColor: theme.colors.tabBar.borderTopColor,
+    },
+    activeTintColor: theme.colors.tabBar.activeTintColor,
+    inactiveTintColor: theme.colors.tabBar.inactiveTintColor,
+  },
+}))``;
 
+export default function Routes({ toggleTheme }) {
   return (
     <NavigationContainer>
-      <Navigator
+      <TabBar
         screenOptions={({ route }) => ({
           tabBarIcon: ({ color, size, focused }) => {
             if (route.name === 'Pay') return <PayButton focused={focused} />;
@@ -52,14 +57,6 @@ export default function Routes({ theme }) {
             return <Icon name={name} size={size} color={color} />;
           },
         })}
-        tabBarOptions={{
-          style: {
-            backgroundColor,
-            borderTopColor,
-          },
-          activeTintColor,
-          inactiveTintColor,
-        }}
       >
         <Screen
           name="Home"
@@ -79,11 +76,12 @@ export default function Routes({ theme }) {
 
         <Screen
           name="Pay"
-          component={Pay}
           options={{
             title: '',
           }}
-        />
+        >
+          {(props) => <Pay {...props} toggleTheme={toggleTheme} />}
+        </Screen>
 
         <Screen
           name="Notifications"
@@ -100,7 +98,7 @@ export default function Routes({ theme }) {
             title: 'Ajustes',
           }}
         />
-      </Navigator>
+      </TabBar>
     </NavigationContainer>
   );
 }

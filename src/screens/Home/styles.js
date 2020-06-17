@@ -3,15 +3,16 @@ import Constants from 'expo-constants';
 
 const { statusBarHeight } = Constants;
 
-export const Wrapper = styled.SafeAreaView`
-  margin-top: ${statusBarHeight}px;
+export const Wrapper = styled.View`
   flex: 1;
-  background: #f8f8f8;
+  background: ${({ theme }) => theme.colors.background};
 `;
 
 export const Container = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false,
-})``;
+})`
+  margin-top: ${statusBarHeight}px;
+`;
 
 export const Header = styled.View`
   height: 50px;
@@ -24,14 +25,14 @@ export const Header = styled.View`
 export const BalanceContainer = styled.View``;
 
 export const BalanceTitle = styled.Text`
-  color: #222;
+  color: ${({ theme }) => theme.colors.text};
   font-size: 14px;
   text-align: center;
   opacity: 0.8;
 `;
 
 export const Balance = styled.Text`
-  color: #222;
+  color: ${({ theme }) => theme.colors.text};
   text-align: center;
   font-size: 18px;
   font-weight: bold;
