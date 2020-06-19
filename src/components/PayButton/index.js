@@ -26,7 +26,6 @@ export default function PayButton({ focused }) {
         }
         start={[1, 0.2]}
       >
-        {console.log(focused)}
         <MoneyIcon focused={focused} />
         <Label focused={focused}>Pagar</Label>
       </Button>
