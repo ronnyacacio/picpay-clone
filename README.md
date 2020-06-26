@@ -67,5 +67,5 @@ Voçê deve instalar o app expo no seu celular e escanear o qrcode gerado
 ```
 
 <p align="center">
-  Feito com 💚 by <a href="https://www.linkedin.com/in/ronnyacacio/"> Ronny Acácio </a>
+  Made with 💚 by <a href="https://www.linkedin.com/in/ronnyacacio/"> Ronny Acácio </a>
 </p>
